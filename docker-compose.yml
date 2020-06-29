@@ -1,0 +1,27 @@
+# Use root/example as user/password credentials
+version: '2'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+        - "27017:27017"
+    volumes:
+      - '/opt/mongo-persistence:/data/db'
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+
+  c0-0c:
+    image: docker.io/cloutorc/c0-0c:latest
+    restart: always
+    depends_on:
+        - mongo
+    ports:
+      - 8082:8082
+ 
