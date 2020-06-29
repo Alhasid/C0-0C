@@ -13,7 +13,7 @@ const HOST = '0.0.0.0';
 
 const app = express();
 app.set('view engine', 'pug');
-const url = 'mongodb://localhost:27017';
+const url = 'mongodb://mongo:27017';
 var  data = '';
 const MongoClient = mongo.MongoClient;
 const agg = [{'$sample': {'size': 1}}];
